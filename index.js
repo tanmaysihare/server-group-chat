@@ -6,15 +6,14 @@ const port = process.env.PORT || 3001;
 const db = require('./models');
 
 
-app.use(cors({
-    origin: 'http://localhost:3000',
-}));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended:false }));
 
 const userRouter = require('./routes/User');
 app.use('/users', userRouter);
-
+const messagesRouter = require('./routes/Messages');
+app.use('/messages', messagesRouter);
 
 db.sequelize.sync().then(()=>{
     app.listen(port, () => {
