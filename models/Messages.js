@@ -9,7 +9,9 @@ module.exports = (sequelize, DataTypes) => {
         Messages.belongsTo(models.Users, {
            onDelete: "cascade",
         });
-       
+        Messages.belongsTo(models.Groups, {
+            onDelete: "cascade",
+        });      
     }
     return Messages; 
 }
