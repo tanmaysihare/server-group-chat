@@ -4,14 +4,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        senderName:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        }
     });
     Messages.associate = (models) => {
-        Messages.belongsTo(models.Users, {
-           onDelete: "cascade",
-        });
-        Messages.belongsTo(models.Groups, {
-            onDelete: "cascade",
-        });      
-    }
+        Messages.belongsTo(models.Users);
+        Messages.belongsTo(models.Groups);
+      };
     return Messages; 
 }

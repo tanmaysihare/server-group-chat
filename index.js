@@ -14,6 +14,10 @@ const userRouter = require('./routes/User');
 app.use('/users', userRouter);
 const messagesRouter = require('./routes/Messages');
 app.use('/messages', messagesRouter);
+const groupsRouter = require('./routes/Groups');
+app.use('/groups', groupsRouter);
+const addUsersRouter = require('./routes/AddUsers');
+app.use('/addAndSearch', addUsersRouter);
 
 db.sequelize.sync().then(()=>{
     app.listen(port, () => {
