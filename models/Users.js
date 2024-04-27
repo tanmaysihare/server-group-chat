@@ -20,12 +20,8 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
     Users.associate = (models) => {
-        Users.hasMany(models.Messages, {
-            onDelete: "cascade",
-        });
-        Users.hasMany(models.Groups, {
-            onDelete: "cascade",
-        });
-    }
+        Users.belongsToMany(models.Groups, { through: models.User_Group });
+        Users.hasMany(models.Messages);
+      };
     return Users;
 }

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Messages = sequelize.define('Messages', {
+    const MessageArchive = sequelize.define('MessageArchive', {
         message: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -7,12 +7,11 @@ module.exports = (sequelize, DataTypes) => {
         senderName:{
             type: DataTypes.STRING,
             allowNull: false,
-        },
-
+        }
     });
-    Messages.associate = (models) => {
-        Messages.belongsTo(models.Users);
-        Messages.belongsTo(models.Groups);
+    MessageArchive.associate = (models) => {
+        MessageArchive.belongsTo(models.Users);
+        MessageArchive.belongsTo(models.Groups);
       };
-    return Messages; 
+    return MessageArchive; 
 }

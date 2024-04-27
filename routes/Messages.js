@@ -3,8 +3,8 @@ const router = express.Router();
 const messagesController = require("../controllers/Messages");
 const {validateToken} = require("../middleware/token");
 
-router.get("/getMessages", validateToken, messagesController.getMessages);
+router.get("/getMessages/:id", validateToken, messagesController.getMessages);
 
-router.post("/sendMessage", validateToken, messagesController.postMessage);
+router.post("/sendMessage/:id", validateToken, messagesController.postMessage);
 
 module.exports = router;
