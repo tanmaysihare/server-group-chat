@@ -17,6 +17,10 @@ app.use('/users', userRouter);
 
 const messagesRouter = require('./routes/Messages');
 app.use('/messages', messagesRouter);
+const groupsRouter = require('./routes/Groups');
+app.use('/groups', groupsRouter);
+const addUsersRouter = require('./routes/AddUsers');
+app.use('/addAndSearch', addUsersRouter);
 
 const groupsRouter = require('./routes/Groups');
 app.use('/groups', groupsRouter);
